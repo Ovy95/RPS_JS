@@ -14,24 +14,21 @@ class Rps {
     rockMethod(computer) {
       if (computer == "Paper"){
         return "Computer wins"
-      } else {
-          return "Player wins"
-      }
+      } 
+      return "Player wins"
     }
     
     paperMethod(computer){
       if (computer == "Scissors"){
         return "Computer wins"
-      } else {
-          return "Player wins"
-      }
+      } 
+      return "Player wins"
     }
     scissorsMethod(computer){
       if (computer == "Rock"){
         return "Computer wins"
-      } else {
-          return "Player wins"
-      }
+      } 
+      return "Player wins"
     }
     //          rps = new Rps()
     //          rps.playGame("Rock")
