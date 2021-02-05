@@ -11,23 +11,23 @@ class Rps {
       return weapons[selector]
     }
   
-    rockMethod(player,computer) {
-      if (player == "Rock" && computer == "Paper"){
+    rockMethod(computer) {
+      if (computer == "Paper"){
         return "Computer wins"
       } else {
           return "Player wins"
       }
     }
     
-    paperMethod(player,computer){
-      if (player == "Paper" && computer == "Scissors"){
+    paperMethod(computer){
+      if (computer == "Scissors"){
         return "Computer wins"
       } else {
           return "Player wins"
       }
     }
-    scissorsMethod(player,computer){
-      if (player == "Scissors" && computer == "Rock"){
+    scissorsMethod(computer){
+      if (computer == "Rock"){
         return "Computer wins"
       } else {
           return "Player wins"
@@ -47,13 +47,13 @@ class Rps {
         return "Draw"
       }
       if (player == "Rock"){
-        return this.rockMethod(player,computer)
+        return this.rockMethod(computer)
       }
       if (player == "Paper"){
-        return this.paperMethod(player,computer)
+        return this.paperMethod(computer)
       }
       if (player == "Scissors"){
-        return this.scissorsMethod(player,computer)
+        return this.scissorsMethod(computer)
       }
     }
   }
