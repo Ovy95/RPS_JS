@@ -5,31 +5,29 @@ describe('Rps', function() {
     rps = new Rps();
   });
 
-  describe('Player picks a weapon', function() {
-
-    it('Expected choosen weapon to be the same', function() {
-      expect(rps.player("R")).toEqual("Rock");
-      expect(rps.player("P")).toEqual("Paper");
-      expect(rps.player("S")).toEqual("Scissors");
-
-    });
-
-    it('Checks for invalid moves', function() {
-      expect(rps.player()).toEqual("Invalid move");
-    });
-  
-  });
-
-
   describe('Computers picks a weapon', function() {
     //Stubbing needed
     it('Expected choosen weapon to be the same', function() {
-      // expect(rps.computersChoose()).toEqual("Rock");
-      // expect(rps.computersChoose()).toEqual("Paper");
-      // expect(rps.computersChoose()).toEqual("Scissors");
+      // expect(rps.computerschoice()).toContain("Rock Paper Scissors");
+      // expect(rps.computerschoice()).toContain("Paper");
+      // expect(rps.computerschoice()).toContain("Scissors");
     });
-  
   });
+
+  describe('Checks Winning and Losing methods', function() {
+    it('If Computer selects the winning method returns Computer wins', function() {
+      expect(rps.paperMethod("Scissors")).toEqual("Computer wins");
+      expect(rps.rockMethod("Paper")).toEqual("Computer wins");
+      expect(rps.scissorsMethod("Rock")).toEqual("Computer wins");
+    });
+    it('If Computer selects the losing method returns Player wins', function() {
+      expect(rps.paperMethod("Rock")).toEqual("Player wins");
+      expect(rps.rockMethod("Scissors")).toEqual("Player wins");
+      expect(rps.scissorsMethod("Paper")).toEqual("Player wins");
+    });
+  })
+
+
 
   
 

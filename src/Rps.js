@@ -1,23 +1,20 @@
 class Rps {
- 
-  //This could have an argument of gametype 
+
     getRandompick(max) {
       return Math.floor(Math.random() * Math.floor(max)); 
     }
-  // This is going to return a String value of the choosen "weapon"
-    computersChoose(){
+
+    computerschoice(){
       var selector = this.getRandompick(3)
       var weapons = ["Rock","Paper","Scissors"];
       return weapons[selector]
     }
-  
     rockMethod(computer) {
       if (computer == "Paper"){
         return "Computer wins"
       } 
       return "Player wins"
     }
-    
     paperMethod(computer){
       if (computer == "Scissors"){
         return "Computer wins"
@@ -30,15 +27,11 @@ class Rps {
       } 
       return "Player wins"
     }
-    //          rps = new Rps()
-    //          rps.playGame("Rock")
-    //          rps.playGame("Paper")
-    //          rps.playGame("Scissors")
-  
+   
     playGame(move){
       var player = move
       // "Rock" "Paper" "Scissors"
-      var computer = this.computersChoose()
+      var computer = this.computerschoice()
       
       if (player == computer) {
         return "Draw"
