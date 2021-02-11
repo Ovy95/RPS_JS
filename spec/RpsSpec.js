@@ -5,15 +5,6 @@ describe('Rps', function() {
     rps = new Rps();
   });
 
-  describe('Computers picks a weapon', function() {
-    //Stubbing needed
-    it('Expected choosen weapon to be the same', function() {
-      // expect(rps.computerschoice()).toContain("Rock Paper Scissors");
-      // expect(rps.computerschoice()).toContain("Paper");
-      // expect(rps.computerschoice()).toContain("Scissors");
-    });
-  });
-
   describe('Checks Winning and Losing methods', function() {
     it('If Computer selects the winning method returns Computer wins', function() {
       expect(rps.paperMethod("Scissors")).toEqual("Computer wins");
@@ -27,10 +18,12 @@ describe('Rps', function() {
     });
   })
 
-
-
-  
-
- 
+  describe('Same weapons picked', function() {
+    it('Returns a draw', function() {
+      expect(rps.playGame('Rock','Rock')).toEqual("Draw");
+      expect(rps.playGame('Paper','Paper')).toEqual("Draw")
+      expect(rps.playGame('Scissors','Scissors')).toEqual("Draw")
+    });
+  });
 
 });

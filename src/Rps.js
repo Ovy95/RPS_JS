@@ -3,12 +3,13 @@ class Rps {
     getRandompick(max) {
       return Math.floor(Math.random() * Math.floor(max)); 
     }
-
     computerschoice(){
       var selector = this.getRandompick(3)
       var weapons = ["Rock","Paper","Scissors"];
       return weapons[selector]
     }
+    computerchoice = this.computerschoice()
+    
     rockMethod(computer) {
       if (computer == "Paper"){
         return "Computer wins"
@@ -28,22 +29,19 @@ class Rps {
       return "Player wins"
     }
    
-    playGame(move){
-      var player = move
+    playGame(player,computerchoice){
       // "Rock" "Paper" "Scissors"
-      var computer = this.computerschoice()
-      
-      if (player == computer) {
+      if (player == computerchoice) {
         return "Draw"
       }
       if (player == "Rock"){
-        return this.rockMethod(computer)
+        return this.rockMethod(computerchoice)
       }
       if (player == "Paper"){
-        return this.paperMethod(computer)
+        return this.paperMethod(computerchoice)
       }
       if (player == "Scissors"){
-        return this.scissorsMethod(computer)
+        return this.scissorsMethod(compcomputerchoiceuter)
       }
     }
   }
