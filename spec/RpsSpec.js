@@ -1,3 +1,5 @@
+
+
 describe('Rps', function() {
   var rps;
 
@@ -5,25 +7,55 @@ describe('Rps', function() {
     rps = new Rps();
   });
 
-  describe('Checks Winning and Losing methods', function() {
-    it('If Computer selects the winning method returns Computer wins', function() {
-      expect(rps.paperMethod("Scissors")).toEqual("Computer wins");
-      expect(rps.rockMethod("Paper")).toEqual("Computer wins");
-      expect(rps.scissorsMethod("Rock")).toEqual("Computer wins");
-    });
-    it('If Computer selects the losing method returns Player wins', function() {
-      expect(rps.paperMethod("Rock")).toEqual("Player wins");
-      expect(rps.rockMethod("Scissors")).toEqual("Player wins");
-      expect(rps.scissorsMethod("Paper")).toEqual("Player wins");
-    });
-  })
 
-  describe('Same weapons picked', function() {
-    it('Returns a draw', function() {
-      expect(rps.playGame('Rock','Rock')).toEqual("Draw");
-      expect(rps.playGame('Paper','Paper')).toEqual("Draw")
-      expect(rps.playGame('Scissors','Scissors')).toEqual("Draw")
+  describe('Checks for Computer Wins', function() {
+
+    it(" Rock loses to Paper", function() {
+      expect(rps.outcomes(['Rock'],['Paper'])).toEqual('CPU WINS');
+    });
+    it(" Paper loses to Scissors", function() {
+      expect(rps.outcomes(['Paper'],['Scissors'])).toEqual('CPU WINS');
+    });
+    it(" Scissors loses to Rock", function() {
+      expect(rps.outcomes(['Scissors'],['Rock'])).toEqual('CPU WINS');
+    });
+    
+  });
+
+
+  describe('Checks for Player 1 Wins', function() {
+
+    it("Rock beats Scissors", function() {
+      expect(rps.outcomes(['Rock'],['Scissors'])).toEqual('PLAYER 1 WINS');
+    });
+
+    it("Paper beats Rock", function() {
+      expect(rps.outcomes(['Paper'],['Rock'])).toEqual('PLAYER 1 WINS');
+    });
+
+    it("Scissors beats Paper", function() {
+      expect(rps.outcomes(['Scissors'],['Paper'])).toEqual('PLAYER 1 WINS');
     });
   });
+
+  describe('Checks for Draws', function() {
+
+    it("Rock vs Rock", function() {
+      expect(rps.outcomes(['Rock'],['Rock'])).toEqual('DRAW');
+    });
+
+    it("Paper vs Paper", function() {
+      expect(rps.outcomes(['Paper'],['Paper'])).toEqual('DRAW');
+    });
+
+    it("Scissors vs Scissors", function() {
+      expect(rps.outcomes(['Scissors'],['Scissors'])).toEqual('DRAW');
+    });
+  });
+
+
+  
+
+
 
 });

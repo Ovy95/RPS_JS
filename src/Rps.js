@@ -10,38 +10,15 @@ class Rps {
     }
     computerchoice = this.computerschoice()
     
-    rockMethod(computer) {
-      if (computer == "Paper"){
-        return "Computer wins"
-      } 
-      return "Player wins"
-    }
-    paperMethod(computer){
-      if (computer == "Scissors"){
-        return "Computer wins"
-      } 
-      return "Player wins"
-    }
-    scissorsMethod(computer){
-      if (computer == "Rock"){
-        return "Computer wins"
-      } 
-      return "Player wins"
-    }
-   
-    playGame(player,computerchoice){
-      // "Rock" "Paper" "Scissors"
-      if (player == computerchoice) {
-        return "Draw"
+    outcomes([playerWeapon],[computerchoice]) {
+      var game ={
+        Rock:    {Rock:"DRAW",          Paper:"CPU WINS",     Scissors:"PLAYER 1 WINS"},
+        Paper:   {Rock:"PLAYER 1 WINS", Paper:"DRAW",         Scissors:"CPU WINS"},
+        Scissors:{Rock:"CPU WINS",      Paper:"PLAYER 1 WINS",Scissors:"DRAW"}
       }
-      if (player == "Rock"){
-        return this.rockMethod(computerchoice)
-      }
-      if (player == "Paper"){
-        return this.paperMethod(computerchoice)
-      }
-      if (player == "Scissors"){
-        return this.scissorsMethod(compcomputerchoiceuter)
-      }
+      return game[playerWeapon][computerchoice]
+
     }
+
+    
   }
